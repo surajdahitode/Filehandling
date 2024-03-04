@@ -1,0 +1,90 @@
+package FileHandling;
+import java.io.*;
+
+public class newFile{
+	
+	public static void main(String []args) throws IOException
+	{
+		String path ="C:/Users\\3star\\Desktop\\Filehandling/surajfile.txt";
+		//createfile(path);
+		//writeInFile(path);
+		// readFile(path);
+		// addTextTOFile(path);
+		// removeAllLinesOfText( path);
+		 DeleteFile( path);
+			
+	}
+//	HOW TO CERATE A FILE 
+	private static void createfile(String path) throws IOException
+	{
+		
+		File ref=new File(path);
+		
+		if(ref.createNewFile())
+		{
+			System.out.println("File is created");
+		}
+		else
+		{
+			System.out.println("File is not  created");
+		}
+	}
+	// HOW TO WRITE IN FILE
+	private static void writeInFile(String path) throws IOException
+	{
+		FileWriter ref = new FileWriter(path);
+		ref.write("Hii its my file");
+    	ref.write("\n hii my name is suraj");
+		ref.close();
+		//BufferedWriter ref2= new BufferedWriter(new FileWriter(path));
+   }
+	
+	// HOW TO READ A FILE 
+	private static void readFile(String path) throws IOException {
+		BufferedReader ref = new BufferedReader(new FileReader(path));
+		String a;
+		
+		while ((a=ref.readLine())!= null)
+		{
+			System.out.println(a);
+		}
+	}
+	
+	// HOW TO ADD A TEXT IN FILE  OR HOW TO UPDATE A FILE
+	private static void addTextTOFile(String path) throws IOException
+	{
+		FileWriter ref = new FileWriter(path,true);
+		ref.write("\n I am from ahemadanger");
+		ref.close();
+		
+	}
+	
+	// HOW TO CLOSE A FILE 
+	private static void removeAllLinesOfText(String path) throws IOException
+	{
+		FileWriter ref = new FileWriter(path);
+		ref.close();
+	}
+	
+	
+	// HOW TO DELETE A FILE 
+	private static void DeleteFile(String path)
+	{
+		File ref= new File (path);
+		if (ref.exists())
+		{
+			if(ref.delete())
+			{
+				System.out.println("file is Deleted");
+			}
+			else
+			{
+				System.out.println("file is prsent but can not be Deleted");
+			}
+		}
+		else
+		{
+			System.out.println("File is not deleted");
+		}
+	}
+}
